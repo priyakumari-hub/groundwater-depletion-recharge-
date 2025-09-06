@@ -1,0 +1,95 @@
+Step 11: Future Prediction Function (4 features only)
+# --------------------------
+def predict_future(actual_rainfall, normal_rainfall, departure, total_fall):
+    """
+    Predict future groundwater rise (continuous + category).
+    Uses the same features as in X_cols:
+    ['Actual Rainfall (mm)', 'Normal Rainfall (mm)', 'Departure (mm)', 'Total_Fall']
+    """
+    # Make dataframe for single input
+    future_data = pd.DataFrame([[
+        actual_rainfall, normal_rainfall, departure, total_fall
+    ]], columns=X_cols)
+
+    # Scale features using the same scaler
+    future_scaled = scaler.transform(future_data)
+
+    # Predict continuous rise
+    rise_pred = rf.predict(future_scaled)[0]
+
+    # Predict class (<2m or ≥2m)
+    rise_class = 1 if rise_pred >= 2 else 0
+
+    print("===== Future Prediction =====")
+    print(f"Predicted Groundwater Rise: {rise_pred:.2f} m")
+    if rise_class == 1:
+        print("Class: ≥2m (Good Recharge / Higher Rise)")
+    else:
+        print("Class: <2m (Low Recharge / Risky)")
+    
+    return rise_pred, rise_class
+
+# --------------------------
+# Step 11: Future Prediction Function
+# --------------------------
+def predict_future(recharge, current_level, depletion_before, depletion_after,
+                   actual_rainfall, normal_rainfall, departure, total_fall):
+    """
+    Predict future groundwater rise (continuous + category).
+    """
+    # Make dataframe for single input
+    future_data = pd.DataFrame([[
+        recharge, current_level, depletion_before, depletion_after,
+        actual_rainfall, normal_rainfall, departure, total_fall
+    ]], columns=X_cols)
+
+    # Scale features using the same scaler
+    future_scaled = scaler.transform(future_data)
+
+    # Predict continuous rise
+    rise_pred = rf.predict(future_scaled)[0]
+
+    # Predict class (<2m or ≥2m)
+    rise_class = 1 if rise_pred >= 2 else 0
+
+    print("===== Future Prediction =====")
+    print(f"Predicted Groundwater Rise: {rise_pred:.2f} m")
+    if rise_class == 1:
+        print("Class: ≥2m (Good Recharge / Higher Rise)")
+    else:
+        print("Class: <2m (Low Recharge / Risky)")
+    
+    return rise_pred, rise_class
+
+# --------------------------
+# Step 11: Future Prediction Function
+# --------------------------
+def predict_future(recharge, current_level, depletion_before, depletion_after,
+                   actual_rainfall, normal_rainfall, departure, total_fall):
+    """
+    Predict future groundwater rise (continuous + category).
+    """
+    # Make dataframe for single input
+    future_data = pd.DataFrame([[
+        recharge, current_level, depletion_before, depletion_after,
+        actual_rainfall, normal_rainfall, departure, total_fall
+    ]], columns=X_cols)
+
+    # Scale features using the same scaler
+    future_scaled = scaler.transform(future_data)
+
+    # Predict continuous rise
+    rise_pred = rf.predict(future_scaled)[0]
+
+    # Predict class (<2m or ≥2m)
+    rise_class = 1 if rise_pred >= 2 else 0
+
+    print("===== Future Prediction =====")
+    print(f"Predicted Groundwater Rise: {rise_pred:.2f} m")
+    if rise_class == 1:
+        print("Class: ≥2m (Good Recharge / Higher Rise)")
+    else:
+        print("Class: <2m (Low Recharge / Risky)")
+    
+    return rise_pred, rise_class
+
